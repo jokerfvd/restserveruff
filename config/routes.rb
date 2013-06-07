@@ -1,4 +1,7 @@
 Restserveruff::Application.routes.draw do
+  resources :estabelecimentos, :usuarios, :alimentos
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

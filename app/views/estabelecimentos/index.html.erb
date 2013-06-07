@@ -1,0 +1,23 @@
+<h1>Estabelecimentos</h1>
+ 
+<table>
+  <tr>
+    <th>Nome</th>
+	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @lista.each do |estabelecimento| %>
+  <tr>
+    <td><%= estabelecimento.nome %></td>
+	<td><%= link_to 'Exibir', estabelecimento %></td>
+    <td><%= link_to 'Editar', edit_estabelecimento_path(estabelecimento) %></td>
+    <td><%= link_to 'Deletar', estabelecimento, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+ 
+<%= link_to 'Novo estabelecimento', new_estabelecimento_path %> 

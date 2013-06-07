@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <b>Nome:</b>
+  <%= @estabelecimento.nome %>
+</p>
+ 
+<p>
+  <b>Endereco:</b>
+  <%= @estabelecimento.endereco %>
+</p>
+ 
+<p>
+  <b>Telefone:</b>
+  <%= @estabelecimento.telefone %>
+</p>
+
+<p>
+  <b>Ranks:</b>
+  <%= @estabelecimento.rank %>
+</p>
+ 
+<%= link_to 'Editar', edit_estabelecimento_path(@estabelecimento) %> |
+<%= link_to 'Voltar', estabelecimentos_path %>
