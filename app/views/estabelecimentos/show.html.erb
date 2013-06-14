@@ -19,6 +19,16 @@
   <b>Ranks:</b>
   <%= @estabelecimento.rank %>
 </p>
+
+<p>
+  <b>Alimentos</b><br>
+  <% @estabelecimento.alimentos.each do |alimento| %>
+  <%= 	Preco.where(["alimento_id = ? and estabelecimento_id = ?", alimento.id, @estabelecimento.id])[0].valor %></tab>
+  <%=	alimento.nome  %> 
+  <br> 
+  <% end %>
+</p>
+
  
 <%= link_to 'Editar', edit_estabelecimento_path(@estabelecimento) %> |
 <%= link_to 'Voltar', estabelecimentos_path %>

@@ -64,7 +64,8 @@ class EstabelecimentosController < ApplicationController
  
 	respond_to do |format|
 		format.html  # show.html.erb
-		format.json  { render :json => @estabelecimento }
+		format.json  { render :json => @estabelecimento, :only => [:id, :endereco, :nome, :rank, :telefone, :latitude, :longitude], 
+		  :include => {:alimentos => {:only => [:nome, :tipo], :include => {:precos =>{:only =>:valor}}}  }  }
 	end
   end
 end
