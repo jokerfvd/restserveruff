@@ -29,6 +29,14 @@
   <% end %>
 </p>
 
+<p>
+  <b>Caracteristicas</b><br>
+  <% @estabelecimento.caracteristicas.each do |caracteristica| %>
+  <%=	caracteristica.nome  %> 
+  <br> 
+  <% end %>
+</p>
+
  
 <%= link_to 'Editar', edit_estabelecimento_path(@estabelecimento) %> |
 <%= link_to 'Voltar', estabelecimentos_path %>
