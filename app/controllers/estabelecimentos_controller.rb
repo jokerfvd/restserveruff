@@ -74,6 +74,21 @@ class EstabelecimentosController < ApplicationController
     latitude = params[:latitude]
     longitude = params[:longitude]
     raio = params[:raio]
+    estabelecimentos = Estabelecimento.all
+    estabelecimentos.each do |estab|
+      dlon = estab.longitude - longitude
+      dlat = estab.latitude - latitude
+      a = Math.pow(Math.sin(dlat/2),2) + Math.cos(latitude)* Math.cos(latitudePto) * Math.pow(Math.sin(dlon/2),2)
+      distancia = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+      if (6378140 * distancia < raio)
+        @lista.push(estab)
+      end         
+    end
+    respond_to do |format|
+      format.html  # index.html.erb
+      format.json  { render :json => @lista }
+    end
+    
   end
   
   def filtro
