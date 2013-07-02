@@ -16,15 +16,15 @@
 </p>
 
 <p>
-  <b>Ranks:</b>
-  <%= @estabelecimento.rank %>
+  <b>Gostei:</b>
+  <%= @estabelecimento.gostei %>
 </p>
 
 <p>
-  <b>Alimentos</b><br>
-  <% @estabelecimento.alimentos.each do |alimento| %>
-  <%= 	Preco.where(["alimento_id = ? and estabelecimento_id = ?", alimento.id, @estabelecimento.id])[0].valor %></tab>
-  <%=	alimento.nome  %> 
+  <b>Produtos</b><br>
+  <% @estabelecimento.produtos.each do |produto| %>
+  <%= 	Preco.where(["produto_id = ? and estabelecimento_id = ?", produto.id, @estabelecimento.id])[0].valor %></tab>
+  <%=	produto.nome  %> 
   <br> 
   <% end %>
 </p>

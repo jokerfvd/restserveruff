@@ -1,6 +1,6 @@
 class Estabelecimento < ActiveRecord::Base
-  attr_accessible :endereco, :latitude, :longitude, :nome, :rank, :telefone
+  attr_accessible :endereco, :latitude, :longitude, :nome, :gostei, :telefone
   
   has_many :precos
-  has_many :alimentos, :through => :precos
+  has_many :produtos, :through => :precos
 end
