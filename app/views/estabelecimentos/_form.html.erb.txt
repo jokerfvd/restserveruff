@@ -23,8 +23,16 @@
     <%= f.text_field :telefone %>
   </div>
   <div class="field">
-    <%= f.label :rank %><br />
-    <%= f.text_field :rank %>
+    <%= f.label :gostei %><br />
+    <%= f.text_field :gostei %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
   </div>
   <div class="actions">
     <%= f.submit "ok"%>
