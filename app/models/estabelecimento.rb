@@ -4,4 +4,5 @@ class Estabelecimento < ActiveRecord::Base
   has_many :precos
   has_and_belongs_to_many :caracteristicas
   has_many :produtos, :through => :precos
+  has_many :usuarios, :through => :favoritos
 end

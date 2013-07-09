@@ -1,0 +1,20 @@
+<%= form_for [@usuario , @favorito] do |f| %>
+  <% if @favorito.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@favorito.errors.count, "error") %> o favorito nao pode ser salvo:</h2>
+    <ul>
+    <% @favorito.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :estabelecimento_id %><br />
+    <%= f.text_field :estabelecimento_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "ok"%>
+  </div>
+<% end %>

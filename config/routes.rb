@@ -2,8 +2,13 @@ Restserveruff::Application.routes.draw do
 
   match '/estabelecimentos/proximos', :controller => 'estabelecimentos', :action => 'proximos'
   match '/estabelecimentos/busca', :controller => 'estabelecimentos', :action => 'busca'
+#  match '/usuarios/:id/favoritos', :controller => 'usuarios', :action => 'favoritos'
   
   resources :usuarios, :produtos, :estabelecimentos, :caracteristicas, :precos
+  
+  resources :usuarios do
+    resources :favoritos
+  end
 
 # The priority is based upon order of creation:
 # first created -> highest priority.

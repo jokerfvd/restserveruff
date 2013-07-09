@@ -1,0 +1,15 @@
+<h1>Favoritos</h1>
+ 
+<table>
+ 
+<%@lista.each do |favorito|%> 
+  <tr>	
+  	<td><%= favorito.estabelecimento.nome %></td>
+	<td><%= link_to 'Remover', usuario_favorito_path(favorito.usuario.id,favorito.estabelecimento.id), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<%end %>  
+</table>
+ 
+<br />
+ 
+<%= link_to 'Adicionar favorito', new_usuario_favorito_path %> 

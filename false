@@ -1,0 +1,6 @@
+      invoke  active_record
+      create    db/migrate/20130709150320_create_favoritos.rb
+      create    app/models/favorito.rb
+      invoke    test_unit
+      create      test/unit/favorito_test.rb
+      create      test/fixtures/favoritos.yml

@@ -66,6 +66,6 @@ class UsuariosController < ApplicationController
       format.html  # show.html.erb
       format.json  { render :json => @usuario }
     end
-
   end
+  
 end

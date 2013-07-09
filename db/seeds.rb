@@ -39,9 +39,9 @@ e11 = Estabelecimento.create!(:nome => "Bar Sabor de Icaraí", :endereco => "Rua
 
 
 Usuario.delete_all
-Usuario.create!(:nome => "Felipe Duval", :login => "jokerfvd", :senha => "a")
-Usuario.create!(:nome => "Felipe Ralph", :login => "println", :senha => "b")
-Usuario.create!(:nome => "Raphael Guerra", :login => "rguerra", :senha => "c")
+u1 = Usuario.create!(:nome => "Felipe Duval", :login => "jokerfvd", :senha => "a")
+u2 = Usuario.create!(:nome => "Felipe Ralph", :login => "println", :senha => "b")
+u3 = Usuario.create!(:nome => "Raphael Guerra", :login => "rguerra", :senha => "c")
 
 Produto.delete_all
 a1 = Produto.create!(:nome => "cerveja 600ml", :tipo => 'B')
@@ -75,4 +75,11 @@ Preco.create!(:valor => "R$7,00", :estabelecimento_id => e11.id, :produto_id => 
 Preco.create!(:valor => "R$3,00", :estabelecimento_id => e11.id, :produto_id => a2.id)
 Preco.create!(:valor => "R$15,00", :estabelecimento_id => e11.id, :produto_id => a3.id)
 Preco.create!(:valor => "R$18,00", :estabelecimento_id => e11.id, :produto_id => a7.id)
+
+Favorito.create!(:usuario_id => u1.id, :estabelecimento_id => e3.id)
+Favorito.create!(:usuario_id => u1.id, :estabelecimento_id => e4.id)
+Favorito.create!(:usuario_id => u1.id, :estabelecimento_id => e5.id)
+Favorito.create!(:usuario_id => u2.id, :estabelecimento_id => e3.id)
+Favorito.create!(:usuario_id => u2.id, :estabelecimento_id => e5.id)
+Favorito.create!(:usuario_id => u3.id, :estabelecimento_id => e7.id)
 

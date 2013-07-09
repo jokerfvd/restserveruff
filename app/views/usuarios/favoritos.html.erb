@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <b>Favoritos</b><br>
+  <% @lista.estabelecimentos.each do |estabelecimento| %>
+  <%=	estabelecimento.nome  %> 
+  <br> 
+  <% end %>
+</p>
+ 
+<%= link_to 'Voltar', usuarios_path %>
