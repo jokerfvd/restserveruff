@@ -1,0 +1,28 @@
+<%= form_for(@usuario) do |f| %>
+  <% if @usuario.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@usuario.errors.count, "error") %> a caracteristica nao pode ser salva:</h2>
+    <ul>
+    <% @usuario.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </div>
+  <div class="field">
+    <%= f.label :senha %><br />
+    <%= f.text_field :senha %>
+  </div>
+  <div class="actions">
+    <%= f.submit "ok"%>
+  </div>
+<% end %>

@@ -1,2 +1,23 @@
-<h1>Usuarios#index</h1>
-<p>Find me in app/views/usuarios/index.html.erb</p>
+<h1>Usuarios</h1>
+ 
+<table>
+  <tr>
+    <th>Nome</th>
+	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @lista.each do |usuario| %>
+  <tr>
+    <td><%= usuario.nome %></td>
+    <td><%= link_to 'Exibir', usuario %></td>
+    <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+    <td><%= link_to 'Deletar', usuario, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+ 
+<%= link_to 'Novo usuario', new_usuario_path %> 
