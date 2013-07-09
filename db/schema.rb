@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709150320) do
+ActiveRecord::Schema.define(:version => 20130709220925) do
 
   create_table "alimentos", :force => true do |t|
     t.string   "nome"
@@ -42,12 +42,15 @@ ActiveRecord::Schema.define(:version => 20130709150320) do
     t.integer  "gostei"
   end
 
-  create_table "favoritos", :id => false, :force => true do |t|
-    t.integer  "estabelecimento_id"
+  create_table "favoritos", :force => true do |t|
     t.integer  "usuario_id"
+    t.integer  "estabelecimento_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
+
+  add_index "favoritos", ["estabelecimento_id"], :name => "index_favoritos_on_estabelecimento_id"
+  add_index "favoritos", ["usuario_id"], :name => "index_favoritos_on_usuario_id"
 
   create_table "precos", :force => true do |t|
     t.datetime "created_at",         :null => false

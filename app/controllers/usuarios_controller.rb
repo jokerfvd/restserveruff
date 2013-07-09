@@ -64,7 +64,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       format.html  # show.html.erb
-      format.json  { render :json => @usuario }
+      format.json  { render :json => @usuario, :include => :estabelecimentos }
     end
   end
   
