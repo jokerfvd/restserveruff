@@ -1,0 +1,24 @@
+<%= form_for(@produto) do |f| %>
+  <% if @produto.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@produto.errors.count, "error") %> a caracteristica nao pode ser salva:</h2>
+    <ul>
+    <% @produto.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br />
+    <%= f.text_field :tipo %>
+  </div>
+  <div class="actions">
+    <%= f.submit "ok"%>
+  </div>
+<% end %>

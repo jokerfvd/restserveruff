@@ -1,9 +1,23 @@
 Restserveruff::Application.routes.draw do
 
+  get "produtos/index"
+
+  get "produtos/new"
+
+  get "produtos/create"
+
+  get "produtos/update"
+
+  get "produtos/edit"
+
+  get "produtos/destroy"
+
+  get "produtos/show"
+
   match '/estabelecimentos/proximos', :controller => 'estabelecimentos', :action => 'proximos'
   match '/estabelecimentos/busca', :controller => 'estabelecimentos', :action => 'busca'
   
-  resources :usuarios, :alimentos, :estabelecimentos, :caracteristicas
+  resources :usuarios, :produtos, :estabelecimentos, :caracteristicas
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
