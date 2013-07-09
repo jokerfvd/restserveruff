@@ -1,0 +1,20 @@
+<%= form_for(@caracteristica) do |f| %>
+  <% if @caracteristica.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@caracteristica.errors.count, "error") %> a caracteristica nao pode ser salva:</h2>
+    <ul>
+    <% @caracteristica.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="actions">
+    <%= f.submit "ok"%>
+  </div>
+<% end %>

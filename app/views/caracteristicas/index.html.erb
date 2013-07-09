@@ -1,0 +1,22 @@
+<h1>Caracteristicas</h1>
+ 
+<table>
+  <tr>
+    <th>Nome</th>
+	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @lista.each do |caracteristica| %>
+  <tr>
+    <td><%= caracteristica.nome %></td>
+    <td><%= link_to 'Editar', edit_caracteristica_path(caracteristica) %></td>
+    <td><%= link_to 'Deletar', caracteristica, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+ 
+<%= link_to 'Novo caracteristica', new_caracteristica_path %> 
