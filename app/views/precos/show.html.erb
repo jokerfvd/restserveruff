@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <b>Estabelecimento:</b>
+  <%= @preco.estabelecimento.nome %>
+</p>
+<p>
+  <b>Produto:</b>
+  <%= @preco.produto.nome %>
+</p>
+<p>
+  <b>Valor:</b>
+  <%= @preco.valor %>
+</p>
+
+ 
+<%= link_to 'Editar', edit_preco_path(@preco) %> |
+<%= link_to 'Voltar', precos_path %>

@@ -1,0 +1,35 @@
+<h1>Precos</h1>
+ 
+<table>
+  <tr>
+    <th>Nome</th>
+	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<%
+id = 0
+idantigo = 0
+@lista.each do |preco|
+%> 
+  <tr>	
+  	<td><%= preco.estabelecimento.nome %></td>
+    <td><%= preco.produto.nome %></td>
+    <td><%= preco.valor %></td>
+    <td><%= link_to 'Exibir', preco %></td>
+    <td><%= link_to 'Editar', edit_preco_path(preco) %></td>
+    <td><%= link_to 'Deletar', preco, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<%if (id != idantigo)%>
+
+<%end %>   
+<% 
+idantigo = id
+id = preco.estabelecimento.id
+end %>
+</table>
+ 
+<br />
+ 
+<%= link_to 'Novo preco', new_preco_path %> 

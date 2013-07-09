@@ -1,7 +1,7 @@
 <%= form_for(@produto) do |f| %>
   <% if @produto.errors.any? %>
   <div id="errorExplanation">
-    <h2><%= pluralize(@produto.errors.count, "error") %> a caracteristica nao pode ser salva:</h2>
+    <h2><%= pluralize(@produto.errors.count, "error") %> o produto nao pode ser salvo:</h2>
     <ul>
     <% @produto.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

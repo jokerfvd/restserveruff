@@ -1,0 +1,28 @@
+<%= form_for(@preco) do |f| %>
+  <% if @preco.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@preco.errors.count, "error") %> o preco nao pode ser salvo:</h2>
+    <ul>
+    <% @preco.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :estabelecimento_id %><br />
+    <%= f.text_field :estabelecimento_id %>
+  </div>
+  <div class="field">
+    <%= f.label :produto_id %><br />
+    <%= f.text_field :produto_id %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </div>
+  <div class="actions">
+    <%= f.submit "ok"%>
+  </div>
+<% end %>
