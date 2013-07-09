@@ -1,4 +1,5 @@
 class EstabelecimentosController < ApplicationController
+  include EstabelecimentosHelper
   def new
     @estabelecimento = Estabelecimento.new
 
@@ -70,29 +71,38 @@ class EstabelecimentosController < ApplicationController
 
   end
 
+#Ex por URL
+#http://localhost:3000/estabelecimentos/proximos?raio=100&latitude=-22.903811&longitude=-43.104175
+#http://maparadar.com/forum/viewtopic.php?f=145&t=5181
+#gmaps esta em graus decimais
+#https://support.google.com/maps/answer/2533464?hl=pt
   def proximos
-    latitude = params[:latitude]
-    longitude = params[:longitude]
-    raio = params[:raio]
+    @lista = Array.new
     estabelecimentos = Estabelecimento.all
+    raio = params[:raio]
     estabelecimentos.each do |estab|
-      dlon = estab.longitude - longitude
-      dlat = estab.latitude - latitude
-      a = Math.pow(Math.sin(dlat/2),2) + Math.cos(latitude)* Math.cos(latitudePto) * Math.pow(Math.sin(dlon/2),2)
-      distancia = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-      if (6378140 * distancia < raio)
+      dist = distancia(params[:latitude].to_f, params[:longitude].to_f,estab.latitude, estab.longitude)
+      if (dist.to_f <= raio.to_f && dist.to_f != 0.0)
         @lista.push(estab)
-      end         
+      end
     end
+    
     respond_to do |format|
-      format.html  # index.html.erb
+      format.html  # proximos.html.erb
       format.json  { render :json => @lista }
     end
     
   end
   
-  def filtro
-
+#Ex por URL
+#http://localhost:3000/estabelecimentos/busca?caracteristica=31
+#31 é pizzaria
+  def busca
+    @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ['caracteristicas.id = ' + params[:caracteristica]])
+    respond_to do |format|
+      format.html  # busca.html.erb
+      format.json  { render :json => @lista }
+    end
   end
 
 end
