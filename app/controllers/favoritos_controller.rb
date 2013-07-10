@@ -50,7 +50,8 @@ class FavoritosController < ApplicationController
 
     respond_to do |format|
       format.html  # index.html.erb
-      format.json  { render :json => @lista}
+      format.json  { render :json => @lista, :include => {:precos =>{:only => :valor, :include =>:produto } , 
+      :caracteristicas => {:only => [:nome, :id]} } }
     end
   end
   

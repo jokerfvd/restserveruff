@@ -103,7 +103,13 @@ class EstabelecimentosController < ApplicationController
 #http://localhost:3000/estabelecimentos/busca?caracteristica=31
 #31 é pizzaria
   def busca
-    @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ['caracteristicas.id = ' + params[:caracteristica]])
+    if (params[:tipo] == "nome")
+      @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ["estabelecimentos.nome LIKE %"+params[:nome]+"%"])
+    else 
+      if (params[:tipo] == "caracteristica")
+        @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ['caracteristicas.id = ' + params[:caracteristica]])
+      end
+    end
     respond_to do |format|
       format.html  # busca.html.erb
       format.json  { render :json => @lista, :include => {:precos =>{:only => :valor, :include =>:produto } , 
