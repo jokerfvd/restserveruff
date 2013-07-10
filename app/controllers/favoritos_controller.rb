@@ -1,4 +1,5 @@
 class FavoritosController < ApplicationController
+  
   def new
     @usuario = Usuario.find(params[:usuario_id])
     @favorito = Favorito.new
@@ -10,11 +11,16 @@ class FavoritosController < ApplicationController
   end
 
   def create
-    @favorito = Favorito.new(params[:favorito])
+    @favorito = Favorito.new
+    @favorito.usuario_id = params[:usuario_id]
+    @favorito.estabelecimento_id = params[:favorito][:estabelecimento_id]
+    @usuario = Usuario.find(params[:usuario_id])
+    @estabelecimento = Estabelecimento.find(params[:favorito][:estabelecimento_id])
+    @usuario.estabelecimentos.push(@estabelecimento)
 
     respond_to do |format|
-      if @favorito.save
-        format.html  { redirect_to(@favorito, :notice => 'O Favorito foi adicionado.') }
+      if @usuario.save
+        format.html  { redirect_to :action => :index , :user_id => @usuario.id, :notice => 'O Favorito foi adicionado.' }
         format.json  { render :json => @favorito, :status => :created, :location => @favorito }
       else
         format.html  { render :action => "new" }
