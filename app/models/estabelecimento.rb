@@ -1,5 +1,5 @@
 class Estabelecimento < ActiveRecord::Base
-  attr_accessible :endereco, :latitude, :longitude, :nome, :gostei, :telefone, :caracteristicas
+  attr_accessible :endereco, :latitude, :longitude, :nome, :gostei, :telefone, :caracteristicas,  :id
   
   has_many :precos
   has_many :favoritos

@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <b>Favorito</b>
+  <%= @estabelecimento.favorito %>
+</p>
+
+<p>
   <b>Produtos</b><br>
   <% @estabelecimento.produtos.each do |produto| %>
   <%= 	Preco.where(["produto_id = ? and estabelecimento_id = ?", produto.id, @estabelecimento.id])[0].valor %></tab>

@@ -53,6 +53,19 @@ class EstabelecimentosController < ApplicationController
 
   def index
     @lista = Estabelecimento.all
+    if (params[:token] != nil)
+      user = Usuario.find_by_token(params[:token])
+      @favoritos = Favorito.find_all_by_usuario_id(user.id)
+      @lista.each do |estab|
+        estab.favorito = false
+        @favoritos.each do |fav|
+          if (fav.estabelecimento_id == estab.id)
+            estab.favorito = true
+            break
+          end
+        end   
+      end
+    end
 
     respond_to do |format|
       format.html  # index.html.erb
@@ -63,6 +76,18 @@ class EstabelecimentosController < ApplicationController
 
   def show
     @estabelecimento = Estabelecimento.find(params[:id])
+    @estabelecimento.favorito = false
+    if (params[:token] != nil)
+      user = Usuario.find_by_token(params[:token])
+      @favoritos = Favorito.find_all_by_usuario_id(user.id)
+      @favoritos.each do |fav|
+        if (fav.estabelecimento_id == @estabelecimento.id)
+          @estabelecimento.favorito = true
+          break
+        end
+      end   
+    end
+
 
     respond_to do |format|
       format.html  # show.html.erb
@@ -80,6 +105,20 @@ class EstabelecimentosController < ApplicationController
   def proximos
     @lista = Array.new
     estabelecimentos = Estabelecimento.all
+    if (params[:token] != nil)
+      user = Usuario.find_by_token(params[:token])
+      @favoritos = Favorito.find_all_by_usuario_id(user.id)
+      @lista.each do |estab|
+        estab.favorito = false
+        @favoritos.each do |fav|
+          if (fav.estabelecimento_id == estab.id)
+            estab.favorito = true
+            break
+          end
+        end   
+      end
+    end
+    
     raio = params[:raio]
     if (raio == nil)
       raio = 1000
@@ -110,6 +149,21 @@ class EstabelecimentosController < ApplicationController
         @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ['caracteristicas.id = ' + params[:caracteristica]])
       end
     end
+    if (params[:token] != nil)
+      user = Usuario.find_by_token(params[:token])
+      @favoritos = Favorito.find_all_by_usuario_id(user.id)
+      @lista.each do |estab|
+        estab.favorito = false
+        @favoritos.each do |fav|
+          if (fav.estabelecimento_id == estab.id)
+            estab.favorito = true
+            break
+          end
+        end   
+      end
+    end
+    
+    
     respond_to do |format|
       format.html  # busca.html.erb
       format.json  { render :json => @lista, :include => {:precos =>{:only => :valor, :include =>:produto } , 

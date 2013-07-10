@@ -43,7 +43,7 @@ e13 = Estabelecimento.create!(:nome => "Cheiro de Mar", :endereco => "Rua Robert
 
 
 Usuario.delete_all
-u1 = Usuario.create!(:nome => "Felipe Duval", :login => "jokerfvd", :senha => "a")
+u1 = Usuario.create!(:nome => "Felipe Duval", :login => "jokerfvd", :senha => "a", :token => "duvaluser")
 u2 = Usuario.create!(:nome => "Felipe Ralph", :login => "println", :senha => "b")
 u3 = Usuario.create!(:nome => "Raphael Guerra", :login => "rguerra", :senha => "c")
 
