@@ -2,10 +2,10 @@
  
 <table>
  
-<%@lista.each do |favorito|%> 
+<%@lista.each do |estabelecimento|%> 
   <tr>	
-  	<td><%= favorito.estabelecimento.nome %></td>
-	<td><%= link_to 'Remover', usuario_favorito_path(favorito.usuario.id,favorito.estabelecimento.id), :confirm => 'Tem certeza?', :method => :delete %></td>
+  	<td><%= estabelecimento.nome %></td>
+	<td><%= link_to 'Remover', usuario_favorito_path(@usuario.id,estabelecimento.id), :confirm => 'Tem certeza?', :method => :delete %></td>
   </tr>
 <%end %>  
 </table>

@@ -36,11 +36,15 @@ class FavoritosController < ApplicationController
 
   def index
     @usuario = Usuario.find(params[:usuario_id])
-    @lista = Favorito.find_all_by_usuario_id(@usuario.id)
+    @favoritos = Favorito.find_all_by_usuario_id(@usuario.id)
+    @lista = Array.new
+    @favoritos.each do |favorito|
+      @lista.push(favorito.estabelecimento)
+    end
 
     respond_to do |format|
       format.html  # index.html.erb
-      format.json  { render :json => @lista }
+      format.json  { render :json => @lista}
     end
   end
   
