@@ -104,7 +104,7 @@ class EstabelecimentosController < ApplicationController
 #31 é pizzaria
   def busca
     if (params[:tipo] == "nome")
-      @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ["estabelecimentos.nome LIKE %"+params[:nome]+"%"])
+      @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ['LOWER(estabelecimentos.nome) LIKE ? ','%'+params[:nome].downcase+'%'])
     else 
       if (params[:tipo] == "caracteristica")
         @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ['caracteristicas.id = ' + params[:caracteristica]])
