@@ -2,7 +2,7 @@ Restserveruff::Application.routes.draw do
 
   match '/estabelecimentos/proximos', :controller => 'estabelecimentos', :action => 'proximos'
   match '/estabelecimentos/busca', :controller => 'estabelecimentos', :action => 'busca'
-#  match '/usuarios/:id/favoritos', :controller => 'usuarios', :action => 'favoritos'
+  match '/usuarios/login', :controller => 'usuarios', :action => 'login'
   
   resources :usuarios, :produtos, :estabelecimentos, :caracteristicas, :precos
   

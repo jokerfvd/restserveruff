@@ -68,4 +68,16 @@ class UsuariosController < ApplicationController
     end
   end
   
+  def login
+    @usuario = Usuario.find_by_login_and_senha(params[:login],params[:pass])
+    if (@usuario != nil)
+      respond_to do |format|
+      format.html  # login.html.erb
+      format.json  { render :json => @usuario, :include => :estabelecimentos }
+    end
+    else
+      render :text => :not_found , :status => :not_found 
+    end
+  end
+  
 end

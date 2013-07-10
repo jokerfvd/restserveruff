@@ -56,7 +56,8 @@ class EstabelecimentosController < ApplicationController
 
     respond_to do |format|
       format.html  # index.html.erb
-      format.json  { render :json => @lista, :include => {:precos =>{:only => :valor, :include =>:produto } } }
+      format.json  { render :json => @lista, :include => {:precos =>{:only => :valor, :include =>:produto } , 
+      :caracteristicas => {:only => [:nome, :id]} } }
     end
   end
 
@@ -80,6 +81,9 @@ class EstabelecimentosController < ApplicationController
     @lista = Array.new
     estabelecimentos = Estabelecimento.all
     raio = params[:raio]
+    if (raio == nil)
+      raio = 1000
+    end
     estabelecimentos.each do |estab|
       dist = distancia(params[:latitude].to_f, params[:longitude].to_f,estab.latitude, estab.longitude)
       if (dist.to_f <= raio.to_f && dist.to_f != 0.0)
@@ -89,7 +93,8 @@ class EstabelecimentosController < ApplicationController
     
     respond_to do |format|
       format.html  # proximos.html.erb
-      format.json  { render :json => @lista }
+      format.json  { render :json => @lista, :include => {:precos =>{:only => :valor, :include =>:produto } , 
+      :caracteristicas => {:only => [:nome, :id]} } }
     end
     
   end
@@ -101,7 +106,8 @@ class EstabelecimentosController < ApplicationController
     @lista = Estabelecimento.find(:all, :include=>:caracteristicas, :conditions => ['caracteristicas.id = ' + params[:caracteristica]])
     respond_to do |format|
       format.html  # busca.html.erb
-      format.json  { render :json => @lista }
+      format.json  { render :json => @lista, :include => {:precos =>{:only => :valor, :include =>:produto } , 
+      :caracteristicas => {:only => [:nome, :id]} } }
     end
   end
 

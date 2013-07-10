@@ -36,6 +36,10 @@ e10 = Estabelecimento.create!(:nome => "Botequim Cortiço", :endereco => "Rua Do
 :telefone => "(21) 2714-2042", :gostei => 20, :latitude => "-22.904206", :longitude => "-43.111557", :caracteristicas => [c1,c2,c3,c4])
 e11 = Estabelecimento.create!(:nome => "Bar Sabor de Icaraí", :endereco => "Rua General Pereira da Silva, 102 - Icaraí Niterói", 
 :telefone => "(21) 3701-6240", :gostei => 5, :latitude => "-22.90389", :longitude => "-43.112222", :caracteristicas => [c1,c2,c3,c4,c5,c6])
+e12 = Estabelecimento.create!(:nome => "Netu's Bar", :endereco => "Rua Antônio Parreiras - Boa Viagem", 
+:telefone => "(21) 9962-3699", :gostei => 5, :latitude => "-22.90474", :longitude => "-43.129901", :caracteristicas => [c3,c5,c6])
+e13 = Estabelecimento.create!(:nome => "Cheiro de Mar", :endereco => "Rua Roberto Rowley Mendes - Boa Viagem", 
+:telefone => "(21) 2721-9658", :gostei => 5, :latitude => "-22.906855", :longitude => "-43.131918", :caracteristicas => [c1,c2,c3])
 
 
 Usuario.delete_all
@@ -75,6 +79,10 @@ Preco.create!(:valor => "R$7,00", :estabelecimento_id => e11.id, :produto_id => 
 Preco.create!(:valor => "R$3,00", :estabelecimento_id => e11.id, :produto_id => a2.id)
 Preco.create!(:valor => "R$15,00", :estabelecimento_id => e11.id, :produto_id => a3.id)
 Preco.create!(:valor => "R$18,00", :estabelecimento_id => e11.id, :produto_id => a7.id)
+Preco.create!(:valor => "R$7,00", :estabelecimento_id => e12.id, :produto_id => a1.id)
+Preco.create!(:valor => "R$3,00", :estabelecimento_id => e12.id, :produto_id => a2.id)
+Preco.create!(:valor => "R$15,00", :estabelecimento_id => e13.id, :produto_id => a3.id)
+Preco.create!(:valor => "R$18,00", :estabelecimento_id => e13.id, :produto_id => a7.id)
 
 Favorito.create!(:usuario_id => u1.id, :estabelecimento_id => e3.id)
 Favorito.create!(:usuario_id => u1.id, :estabelecimento_id => e4.id)
@@ -82,4 +90,7 @@ Favorito.create!(:usuario_id => u1.id, :estabelecimento_id => e5.id)
 Favorito.create!(:usuario_id => u2.id, :estabelecimento_id => e3.id)
 Favorito.create!(:usuario_id => u2.id, :estabelecimento_id => e5.id)
 Favorito.create!(:usuario_id => u3.id, :estabelecimento_id => e7.id)
-
+Favorito.create!(:usuario_id => u1.id, :estabelecimento_id => e12.id)
+Favorito.create!(:usuario_id => u1.id, :estabelecimento_id => e13.id)
+Favorito.create!(:usuario_id => u2.id, :estabelecimento_id => e12.id)
+Favorito.create!(:usuario_id => u3.id, :estabelecimento_id => e12.id)
