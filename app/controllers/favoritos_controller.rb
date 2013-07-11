@@ -35,7 +35,7 @@ class FavoritosController < ApplicationController
   def destroy
     #:usuario_id mas é login que vem
     @usuario = Usuario.find_by_login(params[:usuario_id])
-    @favorito = Favorito.find_all_by_usuario_id_and_estabelecimento_id(@usuario.id,params[:estabelecimento_id]).first
+    @favorito = Favorito.find_all_by_usuario_id_and_estabelecimento_id(@usuario.id,params[:id]).first
     Favorito.delete_all(["usuario_id = ? AND estabelecimento_id = ?",@favorito.usuario_id,@favorito.estabelecimento_id])
 
     respond_to do |format|
