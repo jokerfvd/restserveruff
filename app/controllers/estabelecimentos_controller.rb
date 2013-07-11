@@ -108,7 +108,7 @@ class EstabelecimentosController < ApplicationController
     if (params[:token] != nil)
       user = Usuario.find_by_token(params[:token])
       @favoritos = Favorito.find_all_by_usuario_id(user.id)
-      @lista.each do |estab|
+      estabelecimentos.each do |estab|
         estab.favorito = false
         @favoritos.each do |fav|
           if (fav.estabelecimento_id == estab.id)
