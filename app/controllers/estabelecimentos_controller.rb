@@ -126,6 +126,9 @@ class EstabelecimentosController < ApplicationController
     estabelecimentos.each do |estab|
       dist = distancia(params[:latitude].to_f, params[:longitude].to_f,estab.latitude, estab.longitude)
       if (dist.to_f <= raio.to_f && dist.to_f != 0.0)
+        if (estab.favorito == nil)
+          estab.favorito = false
+        end
         @lista.push(estab)
       end
     end
