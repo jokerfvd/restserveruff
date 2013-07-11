@@ -11,16 +11,19 @@ class FavoritosController < ApplicationController
   end
 
   def create
+    #:usuario_id mas é login que vem
+    @usuario = Usuario.find_by_login(params[:usuario_id])
     @favorito = Favorito.new
-    @favorito.usuario_id = params[:usuario_id]
-    @favorito.estabelecimento_id = params[:favorito][:estabelecimento_id]
-    @usuario = Usuario.find(params[:usuario_id])
-    @estabelecimento = Estabelecimento.find(params[:favorito][:estabelecimento_id])
+    @favorito.usuario_id = @usuario.id
+    
+    @favorito.estabelecimento_id = params[:estabelecimento_id]
+    @estabelecimento = Estabelecimento.find(params[:estabelecimento_id])   
+    
     @usuario.estabelecimentos.push(@estabelecimento)
 
     respond_to do |format|
       if @usuario.save
-        format.html  { redirect_to :action => :index , :user_id => @usuario.id, :notice => 'O Favorito foi adicionado.' }
+        format.html  { redirect_to :action => :index , :usuario_id => @usuario.id, :notice => 'O Favorito foi adicionado.' }
         format.json  { render :json => @favorito, :status => :created, :location => @favorito }
       else
         format.html  { render :action => "new" }
@@ -30,8 +33,9 @@ class FavoritosController < ApplicationController
   end
 
   def destroy
-    @usuario = Usuario.find(params[:usuario_id])
-    @favorito = Favorito.find_all_by_usuario_id_and_estabelecimento_id(@usuario.id,params[:id]).first
+    #:usuario_id mas é login que vem
+    @usuario = Usuario.find_by_login(params[:usuario_id])
+    @favorito = Favorito.find_all_by_usuario_id_and_estabelecimento_id(@usuario.id,params[:estabelecimento_id]).first
     Favorito.delete_all(["usuario_id = ? AND estabelecimento_id = ?",@favorito.usuario_id,@favorito.estabelecimento_id])
 
     respond_to do |format|
