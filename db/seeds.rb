@@ -19,27 +19,27 @@ c6 = Caracteristica.create!(:nome => "sinuca")
 
 Estabelecimento.delete_all
 e3 = Estabelecimento.create!(:nome => "Bar do Meio", :endereco => "Rua Cinco de Julho, 344 - Icaraí Niterói", 
-:telefone => "(21) 2711-2632", :gostei => 5, :latitude => "-22.903811", :longitude => "-43.104175", :caracteristicas => [c1,c2])
+:telefone => "(21) 2711-2632", :gostei => 5, :latitude => "-22.903811", :longitude => "-43.104175", :caracteristicas => [c1,c2], :favorito => false)
 e4 = Estabelecimento.create!(:nome => "Boteco Confraria", :endereco => "Rua Nóbrega, 237 - Jardim Icarai Niterói", 
-:telefone => "(21) 2617-8110", :gostei => 5, :latitude => "-22.904424", :longitude => "-43.102115", :caracteristicas => [c2,c3])
+:telefone => "(21) 2617-8110", :gostei => 5, :latitude => "-22.904424", :longitude => "-43.102115", :caracteristicas => [c2,c3], :favorito => false)
 e5 = Estabelecimento.create!(:nome => "Bar do Nani", :endereco => "Rua Domingues de Sá, 274-320 - Icaraí Niterói", 
-:telefone => "", :gostei => 5, :latitude => "-22.903514", :longitude => "-43.104797", :caracteristicas => [c3,c4])
+:telefone => "", :gostei => 5, :latitude => "-22.903514", :longitude => "-43.104797", :caracteristicas => [c3,c4], :favorito => false)
 e6 = Estabelecimento.create!(:nome => "Novo Ponto", :endereco => "Rua Domingues de Sá, 192 - Icaraí Niterói", 
-:telefone => "(21) 3701-0792", :gostei => 9, :latitude => "-22.905669", :longitude => "-43.107179", :caracteristicas => [c4,c5])
+:telefone => "(21) 3701-0792", :gostei => 9, :latitude => "-22.905669", :longitude => "-43.107179", :caracteristicas => [c4,c5], :favorito => false)
 e7 = Estabelecimento.create!(:nome => "Chopp Shop", :endereco => "Rua Lopes Trovão, 439 - Icaraí Niterói", 
-:telefone => "(21) 2714-2835", :gostei => 5, :latitude => "-22.899699", :longitude => "-43.104218", :caracteristicas => [c5,c6])
+:telefone => "(21) 2714-2835", :gostei => 5, :latitude => "-22.899699", :longitude => "-43.104218", :caracteristicas => [c5,c6], :favorito => false)
 e8 = Estabelecimento.create!(:nome => "Souza Lima Bar de Icarai", :endereco => "Rua Geraldo Martins, 176 Niterói", 
-:telefone => "(21) 2722-7558", :gostei => 10, :latitude => "-22.901992", :longitude => "-43.101858", :caracteristicas => [c1,c2,c3])
+:telefone => "(21) 2722-7558", :gostei => 10, :latitude => "-22.901992", :longitude => "-43.101858", :caracteristicas => [c1,c2,c3], :favorito => false)
 e9 = Estabelecimento.create!(:nome => "Adega Pérola", :endereco => "Rua Siqueira Campos, 138 Rio de Janeiro", 
-:telefone => "(21) 2255-9425", :gostei => 5, :latitude => "-22.900787", :longitude => "-43.098939", :caracteristicas => [c4,c5,c6])
+:telefone => "(21) 2255-9425", :gostei => 5, :latitude => "-22.900787", :longitude => "-43.098939", :caracteristicas => [c4,c5,c6], :favorito => false)
 e10 = Estabelecimento.create!(:nome => "Botequim Cortiço", :endereco => "Rua Doutor Tavares Macedo, 139 - Icaraí Niterói", 
-:telefone => "(21) 2714-2042", :gostei => 20, :latitude => "-22.904206", :longitude => "-43.111557", :caracteristicas => [c1,c2,c3,c4])
+:telefone => "(21) 2714-2042", :gostei => 20, :latitude => "-22.904206", :longitude => "-43.111557", :caracteristicas => [c1,c2,c3,c4], :favorito => false)
 e11 = Estabelecimento.create!(:nome => "Bar Sabor de Icaraí", :endereco => "Rua General Pereira da Silva, 102 - Icaraí Niterói", 
-:telefone => "(21) 3701-6240", :gostei => 5, :latitude => "-22.90389", :longitude => "-43.112222", :caracteristicas => [c1,c2,c3,c4,c5,c6])
+:telefone => "(21) 3701-6240", :gostei => 5, :latitude => "-22.90389", :longitude => "-43.112222", :caracteristicas => [c1,c2,c3,c4,c5,c6], :favorito => false)
 e12 = Estabelecimento.create!(:nome => "Netu's Bar", :endereco => "Rua Antônio Parreiras - Boa Viagem", 
-:telefone => "(21) 9962-3699", :gostei => 5, :latitude => "-22.90474", :longitude => "-43.129901", :caracteristicas => [c3,c5,c6])
+:telefone => "(21) 9962-3699", :gostei => 5, :latitude => "-22.90474", :longitude => "-43.129901", :caracteristicas => [c3,c5,c6], :favorito => false)
 e13 = Estabelecimento.create!(:nome => "Cheiro de Mar", :endereco => "Rua Roberto Rowley Mendes - Boa Viagem", 
-:telefone => "(21) 2721-9658", :gostei => 5, :latitude => "-22.906855", :longitude => "-43.131918", :caracteristicas => [c1,c2,c3])
+:telefone => "(21) 2721-9658", :gostei => 5, :latitude => "-22.906855", :longitude => "-43.131918", :caracteristicas => [c1,c2,c3], :favorito => false)
 
 
 Usuario.delete_all
