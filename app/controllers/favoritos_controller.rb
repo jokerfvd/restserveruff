@@ -45,10 +45,12 @@ class FavoritosController < ApplicationController
   end
 
   def index
-    @usuario = Usuario.find(params[:usuario_id])
+    #:usuario_id mas é login que vem
+    @usuario = Usuario.find_by_login(params[:usuario_id])
     @favoritos = Favorito.find_all_by_usuario_id(@usuario.id)
     @lista = Array.new
     @favoritos.each do |favorito|
+      favorito.estabelecimento.favorito = true
       @lista.push(favorito.estabelecimento)
     end
 
